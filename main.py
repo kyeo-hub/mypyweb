@@ -8,6 +8,8 @@ import markdown2
 from jc import jc
 from bmi import main as bmi
 from markdown_previewer import main as markdown_previewer
+from chat_room import main as chat_room
+from gomoku_game import main as gomoku_game
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -23,4 +25,6 @@ async def read_main(request: Request):
 app.mount("/bmi", FastAPI(routes=webio_routes(bmi)))
 app.mount("/jc", FastAPI(routes=webio_routes(jc)))
 app.mount("/markdown_previewer", FastAPI(routes=webio_routes(markdown_previewer)))
+app.mount("/chat_room", FastAPI(routes=webio_routes(chat_room)))
+app.mount("/gomoku_game", FastAPI(routes=webio_routes(gomoku_game)))
 # app.mount("/jc", FastAPI(routes=webio_routes(jc)))
